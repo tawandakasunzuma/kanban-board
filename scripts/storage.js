@@ -1,6 +1,6 @@
 /**
- * Loads tasks from browser localStorage.
- * @returns {Array<Task>} An array of task objects, or empty array if none are saved in localStorage.
+ * Loads tasks from browser's localStorage.
+ * @returns {Array<Task>} An array of task objects, or empty array if none are saved.
  */
 export function loadTasks() {
   const jsonString = localStorage.getItem("kanban-tasks");
@@ -8,7 +8,7 @@ export function loadTasks() {
 }
 
 /**
- * Saves an array of tasks to the browser's localStorage.
+ * Saves an array of tasks to browser's localStorage.
  * @param {Array<Task>} tasks - The tasks to save.
  */
 export function saveTasks(tasks) {
