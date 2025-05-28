@@ -6,11 +6,11 @@
 }
 
 :root {
-  --primary-color: #FFFFFF;
-  --secondary-color: #F4F7fD;
+  --primary-color: #ffffff;
+  --secondary-color: #f4f7fd;
   --primary-font-color: #000000;
-  --secondary-font-color: #828fA3;
-  --primary-btn-color: #635FC7;
+  --secondary-font-color: #828fa3;
+  --tertiary-purple-color: #635FC7;
   --red-color: #EA5555;
   --primary-box-shadow: 0px 4px 6px rgba(54, 78, 126, 0.1015);
   --secondary-box-shadow: 0px 4px 12px rgba(54, 78, 126, 0.4030);
@@ -21,42 +21,6 @@
   --primary-color: #2B2C37;
   --secondary-color: #20212C;
   --primary-font-color: #FFFFFF;
-}
-
-/* ========================
-   Dialog
-======================== */
-
-/* Dialog & backdrop */
-dialog {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  padding: 0;
-  margin: 0;
-  background: none;
-}
-
-dialog::backdrop {
-  background: rgba(0, 0, 0, 0.3);
-}
-
-/* Styles form inside dialog */
-dialog form {
-  background-color: var(--primary-color);
-  border-radius: 8px;
-  padding: 24px;
-  box-shadow: var(--secondary-box-shadow);
-  width: clamp(320px, 90%, 600px);
-  margin: auto;        /* center vertically/horizontally */
-  font-family: inherit;
-}
-
-/* Button grouping inside dialogs */
-.dialog-menu {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
 }
 
 /* ================
@@ -135,7 +99,7 @@ h4 {
 
 .board-btn {
   gap: 10px;
-  background-color: var(--primary-btn-color);
+  background-color: var(--tertiary-purple-color);
   color: #FFFFFF !important;
 }
 
@@ -153,7 +117,7 @@ h4 {
 #sidebar-toggle-container {
     gap: 40px;
     background-color: var(--secondary-color);
-    color: var(--primary-btn-color);
+    color: var(--tertiary-purple-color);
     transition: all 600ms ease;
 }
 
@@ -177,7 +141,7 @@ h4 {
 }
 
 .toggle-theme-btn {
-    background-color: var(--primary-btn-color);
+    background-color: var(--tertiary-purple-color);
     width: 40px;
     height: 20px;
     border: none;
@@ -248,20 +212,29 @@ header {
     font-size: 0.9375rem;
     padding: 14px 24px;
     font-weight: 700;
-    color: var(--primary-color) !important;
-    background-color: var(--primary-btn-color);
-    border-radius: 24px;
+    color: var(--primary-color);
+    background-color: var(--tertiary-purple-color);
     border: none;
     margin-right: 25px;
     cursor: pointer;
-    transition: all 300ms ease;
+    transition: all 600ms ease;
 }
 
 .add-task-btn:hover,
 .add-task-btn:active {
   box-shadow: var(--primary-box-shadow);
-  background-color: #A8A4FF;
+  background-color: rgb(84, 81, 185);
   transform: translateY(-2px);
+}
+
+#desktop-add-task-btn {
+  border-radius: 24px;
+  color: #FFFFFF !important;
+  transition: all 600ms ease;
+}
+
+#desktop-add-task-btn:hover {
+  background-color: #A8A4FF;
 }
 
 .logo-mobile {
@@ -332,7 +305,7 @@ header {
 
 /* Hide Sidebar */
 
-#show-sidebar-icon {
+#icon-hide-menu {
   width: 56px;
   height: 48px;
   border-top-right-radius: 100px;
@@ -351,7 +324,7 @@ header {
   cursor: pointer;
 }
 
-#show-sidebar-icon span {
+#icon-hide-menu span {
   opacity: 0.8;
 }
 
@@ -393,66 +366,120 @@ h2 {
   margin: 0;
 }
 
-/* Labels */
-dialog form label {
-  display: block;
-  font-size: 0.75rem;
-  font-weight: 600;
+/* ===============
+   Modals
+================ */
+#modal-overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.task-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--primary-color);
+  z-index: 1;
+  padding: 0 24px 0 24px;
+  border-radius: 6px;
+  box-shadow: var(--secondary-box-shadow);
+}
+
+.edit-task-modal {
+  display: none;
+}
+
+.add-new-task-modal {
+  display: none;
+}
+
+.modal-top-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-heading {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--primary-font-color);
+}
+
+.modal-close-btn {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--red-color);
+  border: none;
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+#edit-task-body,
+#add-new-task-body {
+  display: flex;
+  flex-direction: column;
+}
+
+#edit-task-body label,
+#add-new-task-body label {
+  font-size: 12px;
   color: var(--secondary-font-color);
-  margin: 1rem 0 0.25rem;
+  font-weight: bold;
+  padding-bottom: 0.5rem;
 }
 
-/* Inputs, textareas, selects */
-dialog form input,
-dialog form textarea,
-dialog form select {
-  width: 100%;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid #828fa340;
+#edit-title,
+#edit-description,
+#edit-status,
+#add-new-task-title,
+#add-new-task-description,
+#add-new-task-status {
+  font-size: 13px;
+  padding: 0.625rem 0.5rem;
+  width: 550px;
+  width: clamp(295px,50vw,550px);
+  border: 1px solid #828FA340;
+  margin-bottom: 24px;
+  font-weight: 500;
   border-radius: 4px;
-  font-size: 0.875rem;
-  font-family: inherit;
-  resize: vertical;
+  color: #20212C !important;
 }
 
-/* Dropdown arrow */
-dialog form select {
-  appearance: none;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="…"><path d="M6 9l6 6 6-6"/></svg>')
-    no-repeat right 1rem center;
-  background-size: 1rem;
-  padding-right: 1.5rem;
+#edit-description,
+#add-new-task-description {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  line-height: 1.375;
 }
 
 .modal-btn {
-  cursor: pointer;
-  color: #fff !important;
+  color: #FFFFFF !important;
   font-size: 13px;
   font-weight: bold;
   border: none;
   padding: 0.85rem 0;
   border-radius: 20px;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Primary buttons */
-#save-changes-btn,
-#create-task-btn,
-#add-new-task-btn {
-  background-color: var(--primary-btn-color);
+#add-new-task-btn,
+#save-changes-btn {
+  background-color: var(--tertiary-purple-color);
   transition: all 600ms ease;
 }
-#save-changes-btn:hover,
-#create-task-btn:hover,
-#add-new-task-btn:hover {
+
+#add-new-task-btn:hover,
+#save-changes-btn:hover {
   background-color: #A8A4FF;
 }
 
-/* Delete button */
 #delete-task-btn {
   background-color: var(--red-color);
   transition: all 600ms ease;
 }
+
 #delete-task-btn:hover {
   background-color: #FF9898;
 }
@@ -470,6 +497,10 @@ dialog form select {
 
 #mobile-menu-modal {
   display: none;
+}
+
+.modal-btn {
+  cursor: pointer;
 }
 
 #mobile-modal-top {
@@ -513,7 +544,7 @@ dialog form select {
   font-weight: bold;
   cursor: pointer;
   overflow: hidden;
-  background-color: var(--primary-btn-color);
+  background-color: var(--tertiary-purple-color);
   color: #FFFFFF !important;
   position: relative;
   left: -24;
@@ -525,7 +556,7 @@ dialog form select {
 
 /* Force sidebar colors */
 body.dark .sidebar-desktop-dark-container {
-  background-color: var(--primary-btn-color) !important;
+  background-color: var(--tertiary-purple-color) !important;
 }
 body.dark .sidebar-desktop-dark-button {
   background-color: #20212C !important;
@@ -547,7 +578,7 @@ body.dark .sidebar-desktop-dark-button {
   .side-bar {
     display: none !important;
   }
-  #show-sidebar-icon {
+  #icon-hide-menu {
     display: none !important;
   }
   .side-bar.show-sidebar {
