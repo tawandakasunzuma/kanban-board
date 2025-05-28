@@ -1,30 +1,45 @@
 /**
+ * @typedef {Object} Task
+ * @property {number} id
+ * @property {string} title
+ * @property {string} description
+ * @property {string} status
+ * @property {string} board
+ */
+
+/**
  * Fetch tasks from API.
  * @returns {Promise<Array<Task>>}
  */
 export async function fetchTasks() {
 
-  const loadingAlert = document.getElementById("loading");
-  
-  loadingAlert.textContent = "Loading...";
+    // Show loading message
+    const loadingAlert = document.getElementById("loading");  
+    loadingAlert.textContent = "Loading...";
 
-  try {
-  
-    const response = await fetch("https://jsl-kanban-api.vercel.app/");
-  
-    if (!response.ok) {
-        throw new Error(`HTTP error! Status ${response.status}`);
+    try {
+        // Fetch API
+        const response = await fetch("https://jsl-kanban-api.vercel.app/");
+
+        // Check response status is okay
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status ${response.status}`);
+        }
+
+        // Parse response JSON into JS object
+        const parsedTasks = await response.json();
+
+        // Clear loading message after successful fetch
+        loadingAlert.textContent = "";
+
+        // Return array of objects for later use
+        return parsedTasks;
     }
 
-    const parsedTasks = await response.json();
-
-    loadingAlert.textContent = "";
-
-    return parsedTasks;
-  }
-  catch (error) {
-    loadingAlert.textContent = "Failed to load tasks. Please try again later.";
-    console.error(error);
-    throw error;
-  }
+    catch (error) {
+        // Show error message if tasks failed to load
+        loadingAlert.textContent = "Failed to load tasks. Please try again later.";
+        console.error(error);
+        throw error;
+    }
 }
