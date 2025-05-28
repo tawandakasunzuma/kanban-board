@@ -6,10 +6,10 @@
 }
 
 :root {
-  --primary-color: #ffffff;
-  --secondary-color: #f4f7fd;
+  --primary-color: #FFFFFF;
+  --secondary-color: #F4F7fD;
   --primary-font-color: #000000;
-  --secondary-font-color: #828fa3;
+  --secondary-font-color: #828fA3;
   --primary-btn-color: #635FC7;
   --red-color: #EA5555;
   --primary-box-shadow: 0px 4px 6px rgba(54, 78, 126, 0.1015);
@@ -21,6 +21,42 @@
   --primary-color: #2B2C37;
   --secondary-color: #20212C;
   --primary-font-color: #FFFFFF;
+}
+
+/* ========================
+   Dialog
+======================== */
+
+/* Dialog & backdrop */
+dialog {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  padding: 0;
+  margin: 0;
+  background: none;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Styles form inside dialog */
+dialog form {
+  background-color: var(--primary-color);
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: var(--secondary-box-shadow);
+  width: clamp(320px, 90%, 600px);
+  margin: auto;        /* center vertically/horizontally */
+  font-family: inherit;
+}
+
+/* Button grouping inside dialogs */
+.dialog-menu {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
 
 /* ================
@@ -357,120 +393,66 @@ h2 {
   margin: 0;
 }
 
-/* ===============
-   Modals
-================ */
-#modal-overlay {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: none;
-}
-
-.task-modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: var(--primary-color);
-  z-index: 1;
-  padding: 0 24px 0 24px;
-  border-radius: 6px;
-  box-shadow: var(--secondary-box-shadow);
-}
-
-.edit-task-modal {
-  display: none;
-}
-
-.add-new-task-modal {
-  display: none;
-}
-
-.modal-top-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.modal-heading {
-  font-size: 18px;
-  font-weight: bold;
-  color: var(--primary-font-color);
-}
-
-.modal-close-btn {
-  font-size: 24px;
-  font-weight: bold;
-  color: var(--red-color);
-  border: none;
-  background-color: var(--primary-color);
-  cursor: pointer;
-}
-
-#edit-task-body,
-#add-new-task-body {
-  display: flex;
-  flex-direction: column;
-}
-
-#edit-task-body label,
-#add-new-task-body label {
-  font-size: 12px;
+/* Labels */
+dialog form label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
   color: var(--secondary-font-color);
-  font-weight: bold;
-  padding-bottom: 0.5rem;
+  margin: 1rem 0 0.25rem;
 }
 
-#edit-title,
-#edit-description,
-#edit-status,
-#add-new-task-title,
-#add-new-task-description,
-#add-new-task-status {
-  font-size: 13px;
-  padding: 0.625rem 0.5rem;
-  width: 550px;
-  width: clamp(295px,50vw,550px);
-  border: 1px solid #828FA340;
-  margin-bottom: 24px;
-  font-weight: 500;
+/* Inputs, textareas, selects */
+dialog form input,
+dialog form textarea,
+dialog form select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #828fa340;
   border-radius: 4px;
-  color: #20212C !important;
+  font-size: 0.875rem;
+  font-family: inherit;
+  resize: vertical;
 }
 
-#edit-description,
-#add-new-task-description {
-  font-family: "Plus Jakarta Sans", sans-serif;
-  line-height: 1.375;
+/* Dropdown arrow */
+dialog form select {
+  appearance: none;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="…"><path d="M6 9l6 6 6-6"/></svg>')
+    no-repeat right 1rem center;
+  background-size: 1rem;
+  padding-right: 1.5rem;
 }
 
 .modal-btn {
-  color: #FFFFFF !important;
+  cursor: pointer;
+  color: #fff !important;
   font-size: 13px;
   font-weight: bold;
   border: none;
   padding: 0.85rem 0;
   border-radius: 20px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-#add-new-task-btn,
-#save-changes-btn {
+/* Primary buttons */
+#save-changes-btn,
+#create-task-btn,
+#add-new-task-btn {
   background-color: var(--primary-btn-color);
   transition: all 600ms ease;
 }
-
-#add-new-task-btn:hover,
-#save-changes-btn:hover {
+#save-changes-btn:hover,
+#create-task-btn:hover,
+#add-new-task-btn:hover {
   background-color: #A8A4FF;
 }
 
+/* Delete button */
 #delete-task-btn {
   background-color: var(--red-color);
   transition: all 600ms ease;
 }
-
 #delete-task-btn:hover {
   background-color: #FF9898;
 }
@@ -488,10 +470,6 @@ h2 {
 
 #mobile-menu-modal {
   display: none;
-}
-
-.modal-btn {
-  cursor: pointer;
 }
 
 #mobile-modal-top {
