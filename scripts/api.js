@@ -12,34 +12,25 @@
  * @returns {Promise<Array<Task>>}
  */
 export async function fetchTasks() {
+  const loadingAlert = document.getElementById("loading-overlay");
+  loadingAlert.style.display = "flex";
 
-    // Show loading message
-    const loadingAlert = document.getElementById("loading");  
-    loadingAlert.textContent = "Loading...";
+  try {
 
-    try {
-        // Fetch API
-        const response = await fetch("https://jsl-kanban-api.vercel.app/");
+    const response = await fetch("https://jsl-kanban-api.vercel.app/");
+    
+    if (!response.ok) throw new Error(`HTTP error! Status ${response.status}`);
 
-        // Check response status is okay
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status ${response.status}`);
-        }
+    const parsedTasks = await response.json();
+    
+    loadingAlert.style.display = "none";
+    
+    return parsedTasks;
+  } 
+  catch (error) {
+  
+    document.getElementById("loading-text").textContent = "Failed to load tasks. Please try again later.";
 
-        // Parse response JSON into JS object
-        const parsedTasks = await response.json();
-
-        // Clear loading message after successful fetch
-        loadingAlert.textContent = "";
-
-        // Return array of objects for later use
-        return parsedTasks;
-    }
-
-    catch (error) {
-        // Show error message if tasks failed to load
-        loadingAlert.textContent = "Failed to load tasks. Please try again later.";
-        console.error(error);
-        throw error;
-    }
+    console.error("Error:", error)
+  }
 }

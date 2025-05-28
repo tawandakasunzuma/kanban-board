@@ -111,7 +111,7 @@
     <!-- Modal -->
     <div id="modal-overlay"></div>
     <!-- Edit modal -->
-    <div class="task-modal edit-task-modal">
+    <div id="edit-task-modal" class="modal task-modal edit-task-modal">
       <div class="modal-top-section">
         <h4 class="modal-heading">Task</h4>
         <button class="modal-close-btn">&#x2716</button>
@@ -142,7 +142,7 @@
       </form>
     </div>
     <!-- Add new task modal -->
-    <div class="task-modal add-new-task-modal">
+    <div id="add-task-modal" class="modal task-modal add-new-task-modal">
       <div class="modal-top-section">
         <h4 class="modal-heading">Add new task</h4>
         <button class="modal-close-btn">&#x2716</button>
@@ -172,7 +172,7 @@
       </form>
     </div>
     <!-- Mobile menu toggle -->
-    <div id="mobile-menu-modal">
+    <div id="mobile-menu-modal" class="modal">
       <div id="mobile-modal-top">
         <h4 id="mobile-modal-heading">ALL BOARDS (1)</h4>
         <button id="mobile-modal-close-btn">&#x2716</button>
@@ -189,7 +189,13 @@
       </div>
     </div>
     <!-- Loading status -->
-    <p id="loading"></p>
-    <script type="module" src="./scripts.js"></script>
+    <div id="loading-overlay">
+        <div id="loading">
+            <div class="spinner"></div>
+            <p id="loading-text">Loading...</p>
+        </div>
+    </div>
+    
+    <script type="module" src="./scripts/main.js"></script>
   </body>
 </html>

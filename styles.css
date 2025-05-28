@@ -126,6 +126,10 @@ h4 {
   box-shadow: var(--secondary-box-shadow);
 }
 
+body.dark #close-sidebar-text {
+  color: white;
+}
+
 /* Theme switch */
 
 .theme-toggle-container {
@@ -561,6 +565,46 @@ body.dark .sidebar-desktop-dark-container {
 body.dark .sidebar-desktop-dark-button {
   background-color: #20212C !important;
 }
+
+/*Loading*/
+#loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  display: none;
+}
+
+#loading {
+  text-align: center;
+  background-color: var(--secondary-color);
+  padding: 3rem;
+  border-radius: 2rem;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid var(--tertiary-purple-color);
+  border-top: 5px solid transparent;
+  border-radius: 50%;
+  margin: 0 auto 1rem auto;
+  animation: spin 600ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 
 /* ========================
    Responsive Styles
