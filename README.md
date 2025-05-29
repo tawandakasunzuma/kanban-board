@@ -1,13 +1,22 @@
 # 🚀 JSLPP Project: Kanban Task Management App
 
+A modern **Kanban-style Task Management App** built with **HTML, CSS, and JavaScript**. This project was developed as part of the **JavaScript Specialist Learning Pathway Project (JSLPP)** to demonstrate front-end proficiency.
+
+[🔗 Live Demo](https://your-netlify-link.netlify.app)  
+[🎥 Watch Presentation](https://www.veed.io/view/your-video-link)
+
 ---
 
 ## 📝 Overview
 
-This is a modern **Kanban Task Management App** built with **HTML, CSS, and JavaScript**. It allows users to **create, edit, delete, and sort tasks** by **status and priority**. Tasks are fetched from a public API and saved locally using **localStorage** for persistence. The app features a **responsive design**, **theme toggle**, and a **mobile-friendly sidebar**. Code is written in **modular JavaScript**
+This app allows users to **create, edit, and delete tasks** across multiple columns based on **status** (To Do, Doing, Done). Task data is dynamically fetched from a public API and stored locally using **localStorage**, ensuring persistence even after page refreshes.
 
-🔗 [**Live Demo**](https://your-netlify-link.netlify.app)  
-🎥 [**Watch Presentation**](https://www.veed.io/view/your-video-link)
+Key features include:
+
+- ✅ Fully **responsive design**
+- 🌙 **Light/Dark theme toggle**
+- 📱 **Mobile-friendly sidebar and menu**
+- 🧩 **Modular JavaScript structure**
 
 ---
 
@@ -30,24 +39,6 @@ This is a modern **Kanban Task Management App** built with **HTML, CSS, and Java
 - 🌗 **Toggle Light/Dark Theme** across all devices
 - 📱 **Responsive Sidebar & Menu** for mobile and desktop
 - 🧩 **Modular JavaScript Architecture** with clear documentation
-
----
-
-## 📁 Project Structure
-
-    kanban-app/
-    ├── index.html
-    ├── styles/
-    │   └── style.css
-    ├── scripts/
-    │   ├── app.js
-    │   ├── dom.js
-    │   ├── modal.js
-    │   ├── storage.js
-    │   └── utils.js
-    ├── assets/
-    │   └── images/
-    └── README.md
 
 ---
 
@@ -86,11 +77,13 @@ Use this app to:
 
 This project follows a **modular structure**:
 
-- `app.js`: Entry point, initializes app
-- `dom.js`: DOM manipulation logic
-- `modal.js`: Handles task modal interactions
-- `storage.js`: Interacts with `localStorage`
-- `utils.js`: Shared utility functions
+- `main.js`: Entry point; initializes the app, fetches tasks from the API, and begins rendering
+- `api.js`: Handles all data fetching from the Kanban API
+- `render.js`: Contains DOM manipulation logic to render and update tasks on the page
+- `modal.js`: Manages task-create/edit modals (opening, closing, and form buttons logic)
+- `storage.js`: Interacts with `localStorage` to load and persist tasks
+- `sidebar.js`: Controls sidebar show/hide behavior for responsive navigation
+- `theme.js`: Implements light/dark theme toggle and persists the user’s preference
 
 All modules are cleanly separated and well-documented:
 Functions are documented using **JSDoc** for clarity and maintainability.
