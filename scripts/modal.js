@@ -88,21 +88,12 @@ document.getElementById("add-new-task-btn").addEventListener("click", (event) =>
   const newDescription = document.getElementById("add-new-task-description");
   const newStatus = document.getElementById("add-new-task-status");
 
-  if (!newTitle) {
+  if (!newTitle.value.trim()) {
     return alert("Please enter a task title.");
   }
 
-  // Get max ID
-  let currentMaxId = 0;
-  for (let i = 0; i < allTasks.length; i++) {
-    const currentTask = allTasks[i];
-    if (currentTask.id > currentMaxId) {
-      currentMaxId = currentTask.id;
-    }
-  }
-
   const newTask = {
-    id: currentMaxId++,
+    id: Date.now(),
     title: newTitle.value.trim(),
     description: newDescription.value.trim(),
     status: newStatus.value
@@ -126,12 +117,13 @@ document.getElementById("add-new-task-btn").addEventListener("click", (event) =>
 document.getElementById("save-changes-btn").addEventListener("click", (event) => {
   event.preventDefault();
 
+  // Updated current task with values from form
   currentTask.title = document.getElementById("edit-title").value;
   currentTask.description = document.getElementById("edit-description").value;
   currentTask.status = document.getElementById("edit-status").value;
 
-  saveTasks(allTasks);
-  renderAllTasks(allTasks);
+  saveTasks(allTasks); // Save the updated task list
+  renderAllTasks(allTasks); // Re-render the updated task list
   closeModal("edit-task-modal");
 });
 
@@ -141,13 +133,16 @@ document.getElementById("save-changes-btn").addEventListener("click", (event) =>
 document.getElementById("delete-task-btn").addEventListener("click", (event) => {
   event.preventDefault();
 
+  // Confirm delete
   if (!confirm("Are you sure you want to delete this task?")) {
     return;
   }
 
+  // Remove task from all tasks array
   allTasks = allTasks.filter(task => task.id !== currentTask.id);
-  saveTasks(allTasks);
-  renderAllTasks(allTasks);
+
+  saveTasks(allTasks); // Save the updated list of tasks
+  renderAllTasks(allTasks); // Re-render the updated task list
   closeModal("edit-task-modal");
 });
 
