@@ -2,7 +2,7 @@
 
 A modern **Kanban-style Task Management App** built with **HTML, CSS, and JavaScript**. This project was developed as part of the **JavaScript Specialist Learning Pathway Project (JSLPP)** to demonstrate front-end proficiency.
 
-[🔗 Live Demo](https://your-netlify-link.netlify.app)  
+[🔗 Live Demo](https://tawanda-kanban-task-manager.netlify.app/)  
 [🎥 Watch Presentation](https://www.veed.io/view/your-video-link)
 
 ---
