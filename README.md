@@ -47,8 +47,8 @@ Key features include:
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/yourusername/your-kanban-project.git
-   cd your-kanban-project
+   git clone https://github.com/tawandakasunzuma/TAWKAS25106_FTO2502_GroupA_Tawanda-Kasunzuma_JSLPP.git
+   cd TAWKAS25106_FTO2502_GroupA_Tawanda-Kasunzuma_JSLPP
 
    ```
 
