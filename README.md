@@ -58,38 +58,36 @@ Built with modular JavaScript for clarity and maintainability.
 2. **Run Locally**  
    No server required — simply open `index.html` in any modern browser:
 
-```bash
-open index.html
-```
+   ```bash
+   open index.html
+   ```
 
 ---
 
 ## 💡 Usage Guide
 
-Use this app to:
-
-- 📌 Track tasks by **status**: To Do, Doing, Done
-- ✏️ **Add, edit, and delete tasks** using intuitive modals
-- 🎯 Stay focused with **priority-based task sorting**
-- 🌙 Toggle between **light and dark modes**
-- 📱 Navigate using a **responsive sidebar or mobile menu**
+- 📌 Track tasks by status: **To Do**, **Doing**, and **Done** columns.  
+- ✏️ Add, edit, and delete tasks via user-friendly modal dialogs.  
+- 🎯 Organize tasks using priority-based sorting within each column.  
+- 🌙 Toggle between light and dark themes for comfort and accessibility.  
+- 📱 Navigate easily using a responsive sidebar or mobile menu on all devices.
 
 ---
 
 ## 📖 Code Structure & Quality
 
-This project follows a **modular structure**:
+The app is built with modular vanilla JavaScript for maintainability:
 
-- `main.js`: Entry point; initializes the app, fetches tasks from the API, and begins rendering
-- `api.js`: Handles all data fetching from the Kanban API
-- `render.js`: Contains DOM manipulation logic to render and update tasks on the page
-- `modal.js`: Manages task-create/edit modals (opening, closing, and form buttons logic)
-- `storage.js`: Interacts with `localStorage` to load and persist tasks
-- `sidebar.js`: Controls sidebar show/hide behavior for responsive navigation
-- `theme.js`: Implements light/dark theme toggle and persists the user’s preference
+- `main.js` — Initializes the app, fetches tasks from API, and triggers rendering.  
+- `api.js` — Manages all external data fetching logic.  
+- `render.js` — Handles DOM rendering and updates for tasks and columns.  
+- `modal.js` — Controls task creation/edit modals, including form logic.  
+- `storage.js` — Interacts with `localStorage` for saving and loading tasks.  
+- `sidebar.js` — Manages responsive sidebar and mobile menu behavior.  
+- `theme.js` — Implements light/dark theme toggling and persistence.  
 
-All modules are cleanly separated and well-documented:
-Functions are documented using **JSDoc** for clarity and maintainability.
+Code is documented using JSDoc, following clear separation of concerns.  
+The modular structure enhances testability and scalability.
 
 ---
 
@@ -99,30 +97,27 @@ Contributions are welcome! To get started:
 
 1. **Fork** the repository
 
-2. **Create a new branch**
+2. **Create a new branch:**
 
-```bash
-git checkout -b feature/your-feature
-```
+   ```git checkout -b feature/your-feature```
 
-3. **Commit your changes**
+3. **Commit your changes:**
 
-```bash
-git commit -m "Add your feature"
-```
+   ```git commit -m "Add your feature"```
 
-4. **Push to your branch**
+4. **Push to your branch:**
 
-```bash
-git push origin feature/your-feature
-```
+   ```git push origin feature/your-feature```
 
-5. **Open a Pull Request** on Github
+5. **Open a Pull Request** on GitHub
 
 ---
 
-## 🙋‍♂️ Contact
+## 📬 Contact
 
-Have questions or want to collaborate?
+For questions, feedback, or collaboration, please reach out to:
 
-📧 Email me at: [tskasunzuma@gmail.com](mailto:tskasunzuma@gmail.com)
+**Tawanda Kasunzuma**  
+📧 tskasunzuma@gmail.com  
+🔗 https://github.com/tawandakasunzuma  
+🔗 https://www.linkedin.com/in/tawanda-kasunzuma/
