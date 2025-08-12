@@ -1,8 +1,8 @@
-# 🚀 Kanban Task Management App
+# Kanban Task Management App
 
 > A modern Kanban-style task management app built with HTML, CSS, and JavaScript, developed to demonstrate front-end proficiency.
 
-🌐 [Live Demo](https://tawanda-kanban-task-manager.netlify.app/)
+🌐 [Live Demo on Netlify](https://tawanda-kanban-task-manager.netlify.app/)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)  
 [![GitHub Stars](https://img.shields.io/github/stars/tawandakasunzuma/kanban-board?style=social)](https://github.com/tawandakasunzuma/kanban-board/stargazers)  
@@ -10,14 +10,15 @@
 
 ## 📝 Overview
 
-This app allows users to **create, edit, and delete tasks** across multiple columns based on **status** (To Do, Doing, Done). Task data is dynamically fetched from a public API and stored locally using **localStorage**, ensuring persistence even after page refreshes.
+**Kanban Task Management App** allows users to:
 
-Key features include:
+- ✅ Create, edit, and delete tasks across multiple columns (To Do, Doing, Done)  
+- 🔄 Fetch tasks dynamically from a public API  
+- 💾 Save tasks persistently using `localStorage`  
+- 🌗 Toggle between light and dark themes  
+- 📱 Navigate via a responsive sidebar and mobile menu  
 
-- ✅ Fully **responsive design**
-- 🌙 **Light/Dark theme toggle**
-- 📱 **Mobile-friendly sidebar and menu**
-- 🧩 **Modular JavaScript structure**
+Built with modular JavaScript for clarity and maintainability.
 
 ---
 
@@ -25,21 +26,22 @@ Key features include:
 
 - **HTML5**
 - **CSS3**
-- **JavaScript (ES6+)**
+- **JavaScript** (ES6+)
 - **LocalStorage**
-- **Netlify** (for deployment)
+- **Git & GitHub** (version control)
+- **Netlify** (deployment)
 
 ---
 
-## 🚀 Features
+## 🚀 Key Features
 
-- 🔄 **Fetch Tasks Dynamically** from [Kanban API](https://jsl-kanban-api.vercel.app/)
-- ✏️ **Edit and Delete Tasks** with confirmation modals
-- 💾 **Save Tasks Persistently** using LocalStorage
-- 📊 **Sort Tasks by Priority** within columns
-- 🌗 **Toggle Light/Dark Theme** across all devices
-- 📱 **Responsive Sidebar & Menu** for mobile and desktop
-- 🧩 **Modular JavaScript Architecture** with clear documentation
+- ✅ Create, edit, and delete tasks across multiple columns (To Do, Doing, Done)  
+- 🔄 Fetch tasks dynamically from a public API  
+- 💾 Save tasks persistently using localStorage  
+- 📊 Sort tasks by priority within each column  
+- 🌗 Toggle light and dark themes across all devices  
+- 📱 Responsive sidebar and mobile menu for easy navigation  
+- 🧩 Modular JavaScript architecture with clear documentation
 
 ---
 
