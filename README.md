@@ -47,8 +47,8 @@ Key features include:
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/tawandakasunzuma/TAWKAS25106_FTO2502_GroupA_Tawanda-Kasunzuma_JSLPP.git
-   cd TAWKAS25106_FTO2502_GroupA_Tawanda-Kasunzuma_JSLPP
+   git clone https://github.com/tawandakasunzuma/kanban-board.git
+   cd kanban-board
 
    ```
 
